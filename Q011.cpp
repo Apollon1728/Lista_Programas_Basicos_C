@@ -10,14 +10,12 @@ int main(void) {
     scanf("%d", &segundos);
 
     horas = segundos / 3600;
-    minutos = (segundos - (horas * 3600)) / 60;
-    relogio_segundos = segundos - (horas * 3600) - (minutos * 60);
+    minutos = (segundos % 3600) / 60;
+    relogio_segundos = (segundos % 3600) % 60;
 
-    if(horas < 10 || minutos < 10 || relogio_segundos < 10){
-        printf("0%d:0%d:0%d\n", horas, minutos, relogio_segundos);
-    }else{
-    printf("%d:%d:%d\n", horas, minutos, relogio_segundos);
-    }
+    
+    printf("%02d:%02d:%02d\n", horas, minutos, relogio_segundos);
+    
 
     return 0;
 
